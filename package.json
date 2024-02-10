@@ -15,10 +15,10 @@
   "license": "MIT",
   "dependencies": {
     "handlebars": "^2.0.0-alpha.4"
-   
   },
   "devDependencies": {
-    "resume-cli": "^2.0.0",
-    "node-sass": "^9.0.0"
+    "node-sass": "^9.0.0",
+    "release-it": "^17.0.3",
+    "resume-cli": "^2.0.0"
   }
 }

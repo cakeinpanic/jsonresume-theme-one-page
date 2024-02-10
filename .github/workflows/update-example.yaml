@@ -5,9 +5,11 @@ on:
     branches:
       - master
     paths:
-      - '*'
-      - '!cv.pdf'  
-      - '!README.md'
+      - 'resume.hbs'
+      - 'resume.json'
+      - 'style.css'
+      - 'index.js'
+      - 'package.json'
 
 jobs:
   build:
