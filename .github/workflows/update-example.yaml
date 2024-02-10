@@ -1,0 +1,47 @@
+name: "Update example PDF"
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '*'
+      - '!cv.pdf'  
+      - '!README.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:                
+      contents: write           
+      pull-requests: write      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with: 
+          persist-credentials: false 
+          fetch-depth: 0 
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install Dependencies
+        run: npm install
+
+
+      - name: Build
+        run: npm run build
+        
+      - name: Commit files
+        run: |
+          git config --local user.email "test@test.com"
+          git config --local user.name "Test"
+          git commit -am "Update PDF example"
+    
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}

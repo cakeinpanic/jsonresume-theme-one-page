@@ -1,0 +1,257 @@
+* {
+  box-sizing: border-box;
+}
+
+page[size="A4"] {
+  background: white;
+  width: 21cm;
+  height: 27.5cm;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  // box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+}
+
+@media print {
+  body, page[size="A4"] {
+    margin: 0;
+    box-shadow: 0;
+  }
+  
+}
+
+:root {
+  --top-shift: 144px
+}
+
+$topColor: white;
+$topTextColor: black;
+$blue: #eef2f9;
+$leftTextColor: black;
+$leftHeaderColor: #005f9d;
+$white: $blue;
+
+
+.container {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Prompt', sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+.top {
+  height: 115px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px 25px 15px;
+  letter-spacing: 1px;
+  background: $topColor;
+  width: 500px;
+  border: 1px solid black;
+  text-align: center;
+  align-self: center;
+  position: absolute;
+  top: 20px;
+  
+  .name {
+    font-size: 2.3em;
+    
+    color: $topTextColor;
+    letter-spacing: 2px;
+    font-weight: 500;
+    
+    &:after {
+      content: '';
+      display: block;
+      border-bottom: 1px solid $topTextColor;
+      position: relative;
+      top: -2px;
+      opacity: .5;
+    }
+  }
+  
+  .title {
+    font-weight: 500;
+    padding-top: 5px;
+    color: $topTextColor;
+  }
+}
+
+.middle {
+  display: flex;
+  height: 100%;
+  font-size: .83em;
+  letter-spacing: .5px;
+  
+}
+
+@counter-style circled-alpha {
+  system: fixed;
+  symbols: ∅ ⊕ ⊖ ⊗ ⊘ ⊛ ⊜;
+  suffix: " ";
+}
+
+.left {
+  width: 31%;
+  flex-shrink: 0;
+  background: $blue;
+  color: $leftTextColor;
+  padding: 20px;
+  padding-right: 15px;
+  padding-top: 10px;
+  border-right: 1px solid $blue;
+  padding-top: var(--top-shift);
+  
+  .block {
+    margin-bottom: 30px;
+    
+    .title {
+      color: $leftHeaderColor;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+    
+    a.text {
+      color: $leftTextColor !important;;
+      display: block;
+    }
+    
+    .text {
+      font-weight: 200;
+      line-height: 1.5;
+      font-size: .8em;
+      margin-bottom: 5px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      &.summary {
+        white-space: pre-line;
+        ul {
+          padding-left: 14px;
+          margin: 3px 0;
+          list-style: circled-alpha;
+          li{
+            &::marker {
+             font-weight: bold;
+            }
+            margin-bottom: 2px;
+          }
+          
+        }
+      }
+      
+      .stress {
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+.right {
+  width: 100%;
+  background: white;
+  padding: 10px 15px 20px 20px;
+  padding-top: var(--top-shift);
+  
+  .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    
+  }
+  
+  .block {
+    margin-bottom: 20px;
+    font-size: .9em;
+    position: relative;
+    
+    &:after {
+      content: '';
+      display: block;
+      position: relative;
+      margin-top: 15px;
+      left: 0px;
+      width: 120%;
+      height: 1px;
+      opacity: .8;
+      background: $topTextColor;
+    }
+    
+    .title {
+      font-size: 1.2em;
+    }
+    
+  }
+  
+  .experience {
+    .company {
+      
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+      
+      .subtitle {
+        font-size: .95em;
+        //opacity: .5;
+        margin: 2px 0 5px;
+        color: $leftHeaderColor;
+        .companyName {
+          display: inline-block;
+          
+          a {
+            color: inherit !important;
+          }
+        }
+        
+        .where, .when {
+          display: inline-block;
+          
+          &:before {
+            content: '|';
+            margin-right: 5px;
+          }
+        }
+        
+        .where {
+          
+          font-size: .9em;
+          
+          
+        }
+      }
+      
+      .about {
+        font-size: .9em;
+        font-weight: 200;
+        margin-top: 0;
+        
+        &-list {
+          font-size: .9em;
+          font-weight: 200;
+          margin-top: 0;
+          margin-left: 0px;
+          padding-left: 20px;
+          list-style-type: '○ ';
+        }
+        
+        .details {
+          white-space: pre-line;
+        }
+        
+        .stack {
+          font-style: italic;
+          font-weight: bold;
+        }
+      }
+      
+    }
+  }
+  
+}

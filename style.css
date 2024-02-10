@@ -1,0 +1,169 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box; }
+
+page[size="A4"] {
+  background: white;
+  width: 21cm;
+  height: 27.5cm;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  box-sizing: border-box; }
+
+@media print {
+  body, page[size="A4"] {
+    margin: 0;
+    box-shadow: 0; } }
+
+:root {
+  --top-shift: 144px
+; }
+
+.container {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Prompt', sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; }
+
+.top {
+  height: 115px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px 25px 15px;
+  letter-spacing: 1px;
+  background: white;
+  width: 500px;
+  border: 1px solid black;
+  text-align: center;
+  align-self: center;
+  position: absolute;
+  top: 20px; }
+  .top .name {
+    font-size: 2.3em;
+    color: black;
+    letter-spacing: 2px;
+    font-weight: 500; }
+    .top .name:after {
+      content: '';
+      display: block;
+      border-bottom: 1px solid black;
+      position: relative;
+      top: -2px;
+      opacity: .5; }
+  .top .title {
+    font-weight: 500;
+    padding-top: 5px;
+    color: black; }
+
+.middle {
+  display: flex;
+  height: 100%;
+  font-size: .83em;
+  letter-spacing: .5px; }
+
+@counter-style circled-alpha {
+  system: fixed;
+  symbols: ∅ ⊕ ⊖ ⊗ ⊘ ⊛ ⊜;
+  suffix: " "; }
+
+.left {
+  width: 31%;
+  flex-shrink: 0;
+  background: #eef2f9;
+  color: black;
+  padding: 20px;
+  padding-right: 15px;
+  padding-top: 10px;
+  border-right: 1px solid #eef2f9;
+  padding-top: var(--top-shift); }
+  .left .block {
+    margin-bottom: 30px; }
+    .left .block .title {
+      color: #005f9d;
+      margin-bottom: 10px;
+      text-transform: uppercase; }
+    .left .block a.text {
+      color: black !important;
+      display: block; }
+    .left .block .text {
+      font-weight: 200;
+      line-height: 1.5;
+      font-size: .8em;
+      margin-bottom: 5px; }
+      .left .block .text:last-child {
+        margin-bottom: 0; }
+      .left .block .text.summary {
+        white-space: pre-line; }
+        .left .block .text.summary ul {
+          padding-left: 14px;
+          margin: 3px 0;
+          list-style: circled-alpha; }
+          .left .block .text.summary ul li {
+            margin-bottom: 2px; }
+            .left .block .text.summary ul li::marker {
+              font-weight: bold; }
+      .left .block .text .stress {
+        font-weight: 400;
+        margin-bottom: 10px; }
+
+.right {
+  width: 100%;
+  background: white;
+  padding: 10px 15px 20px 20px;
+  padding-top: var(--top-shift); }
+  .right .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 5px; }
+  .right .block {
+    margin-bottom: 20px;
+    font-size: .9em;
+    position: relative; }
+    .right .block:after {
+      content: '';
+      display: block;
+      position: relative;
+      margin-top: 15px;
+      left: 0px;
+      width: 120%;
+      height: 1px;
+      opacity: .8;
+      background: black; }
+    .right .block .title {
+      font-size: 1.2em; }
+  .right .experience .company:not(:last-child) {
+    margin-bottom: 15px; }
+  .right .experience .company .subtitle {
+    font-size: .95em;
+    margin: 2px 0 5px;
+    color: #005f9d; }
+    .right .experience .company .subtitle .companyName {
+      display: inline-block; }
+      .right .experience .company .subtitle .companyName a {
+        color: inherit !important; }
+    .right .experience .company .subtitle .where, .right .experience .company .subtitle .when {
+      display: inline-block; }
+      .right .experience .company .subtitle .where:before, .right .experience .company .subtitle .when:before {
+        content: '|';
+        margin-right: 5px; }
+    .right .experience .company .subtitle .where {
+      font-size: .9em; }
+  .right .experience .company .about {
+    font-size: .9em;
+    font-weight: 200;
+    margin-top: 0; }
+    .right .experience .company .about-list {
+      font-size: .9em;
+      font-weight: 200;
+      margin-top: 0;
+      margin-left: 0px;
+      padding-left: 20px;
+      list-style-type: '○ '; }
+    .right .experience .company .about .details {
+      white-space: pre-line; }
+    .right .experience .company .about .stack {
+      font-style: italic;
+      font-weight: bold; }

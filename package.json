@@ -1,0 +1,24 @@
+{
+  "name": "@cakeinpanic/jsonresume-theme-one-page",
+  "version": "0.0.2",
+  "description": "Fit more json resume theme",
+  "author": "Katya Pavlenko",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cakeinpanic/jsonresume-theme-one-page"
+  },
+  "scripts": {
+    "build": "resume export cv.pdf --theme .",
+    "sass-watch": "npm run sass -- -w",
+    "sass": "node-sass ./style.scss ./style.css"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "handlebars": "^2.0.0-alpha.4"
+   
+  },
+  "devDependencies": {
+    "resume-cli": "^2.0.0",
+    "node-sass": "^9.0.0"
+  }
+}
