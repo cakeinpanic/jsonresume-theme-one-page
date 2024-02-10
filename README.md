@@ -1,4 +1,4 @@
-# jsonresume-theme-one-page
+# @cakeinpanic/jsonresume-theme-one-page
 This is the theme for [JSON Resume](http://jsonresume.org/).
 
 This template aims to fit maximum of significant information into one page (useful for people with a lot of various work experience)
